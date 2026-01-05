@@ -1,0 +1,76 @@
+.carousel-wrap{ margin-top: 14px; }
+.carousel-controls{ display:flex; justify-content:flex-end; gap: 10px; margin-bottom: 12px; }
+
+.carousel3d{
+  position:relative;
+  height: 520px;
+  border-radius: 26px;
+  background: rgba(7,22,19,.15);
+  border: 1px solid rgba(215,179,90,.10);
+  overflow:hidden;
+}
+.carousel3d__scene{
+  width:100%;
+  height:100%;
+  perspective: 1200px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.carousel3d__ring{
+  position:relative;
+  width: var(--cardW);
+  height: var(--cardH);
+  transform-style: preserve-3d;
+  transform: translateZ(calc(var(--radius) * -1)) rotateY(var(--rot, 0deg));
+  transition: transform 800ms cubic-bezier(.2,.8,.2,1);
+}
+.pcard{
+  position:absolute;
+  inset:0;
+  width: var(--cardW);
+  height: var(--cardH);
+  border-radius: 22px;
+  transform-style: preserve-3d;
+  filter: drop-shadow(0 22px 70px rgba(0,0,0,.40));
+}
+.pcard__inner{
+  position:relative;
+  width:100%;
+  height:100%;
+  transform-style: preserve-3d;
+  border-radius: 22px;
+  transition: transform 850ms cubic-bezier(.2,.8,.2,1);
+}
+.pcard__face{
+  position:absolute;
+  inset:0;
+  border-radius: 22px;
+  padding: 18px;
+  background: rgba(13,38,31,.72);
+  border: 1px solid rgba(215,179,90,.14);
+  backdrop-filter: blur(14px);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.pcard__back{ transform: rotateY(180deg); }
+.pcard:hover .pcard__inner{ transform: rotateY(180deg) scale(1.06); }
+
+.pcard__tag{ margin:0 0 10px; color: rgba(241,212,135,.95); font-weight:900; letter-spacing:.06em; text-transform:uppercase; font-size:.8rem; }
+.pcard__title{ margin:0 0 10px; font-family:"Playfair Display", serif; }
+.pcard__text{ margin:0 0 14px; color: var(--muted); line-height:1.65; }
+.pcard__meta{ display:flex; flex-wrap:wrap; gap:8px; margin-bottom: 10px; }
+.pcard__meta span{
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(7,22,19,.55);
+  border: 1px solid rgba(215,179,90,.12);
+  color: rgba(231,239,233,.88);
+  font-size:.82rem;
+  font-weight:700;
+}
+.pcard__hint{ margin: 8px 0 0; color: rgba(231,239,233,.65); font-size: .9rem; }
+.pcard__list{ margin:0 0 12px; padding-left: 18px; color: rgba(231,239,233,.85); line-height:1.6; }
+.pcard__link{ color: var(--gold2); text-decoration:none; font-weight:900; }
+.pcard__link:hover{ text-decoration:underline; }
+.carousel-hint{ margin: 10px 0 0; color: rgba(231,239,233,.70); font-size:.9rem; }
