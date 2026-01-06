@@ -145,10 +145,10 @@ function hookEmailForm() {
       btn.disabled = true;
     }
 
-    emailjs.sendForm(
-      "service_nxyn5hr",
-      "template_fmhlu1a",
-      form
+  emailjs.sendForm(
+  "service_nxyn5hr",
+  "template_ai1eyfc",
+  form
     ).then(() => {
       if (btn) {
         btn.textContent = old || "Senden";
