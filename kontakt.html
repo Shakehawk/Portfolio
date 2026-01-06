@@ -1,0 +1,93 @@
+<section id="kontakt" class="page page--pattern page--pattern-kontakt">
+  <div class="container page__inner">
+    <div class="section__head">
+      <p class="kicker">Let’s connect</p>
+      <h2 class="section__title">Kontakt</h2>
+      <p class="section__text">Ready to team up? Schreib mir.</p>
+    </div>
+
+    <div class="contact">
+      <form
+        class="form"
+        id="contact-form"
+        action="https://formsubmit.co/m.malina@gmx.de"
+        method="POST"
+      >
+        <!-- ========================= -->
+        <!-- FormSubmit Einstellungen -->
+        <!-- ========================= -->
+
+        <!-- Captcha deaktivieren -->
+        <input type="hidden" name="_captcha" value="false">
+
+        <!-- Betreff der Mail -->
+        <input type="hidden" name="_subject" value="Neue Nachricht von deinem Portfolio">
+
+        <!-- Tabellen-Layout in der E-Mail -->
+        <input type="hidden" name="_template" value="table">
+
+        <!-- Nach Absenden zurück zur Website -->
+        <input
+          type="hidden"
+          name="_next"
+          value="https://shakehawk.github.io/Portfolio/#kontakt"
+        >
+
+        <!-- Honeypot (Spam-Schutz) -->
+        <input type="text" name="_honey" style="display:none">
+
+        <!-- ========================= -->
+        <!-- Formularfelder -->
+        <!-- ========================= -->
+
+        <label>
+          <span>Name</span>
+          <input
+            type="text"
+            name="name"
+            placeholder="Dein Name"
+            required
+          />
+        </label>
+
+        <label>
+          <span>E-Mail</span>
+          <input
+            type="email"
+            name="email"
+            placeholder="dein@mail.de"
+            required
+          />
+        </label>
+
+        <label>
+          <span>Nachricht</span>
+          <textarea
+            rows="6"
+            name="message"
+            placeholder="Worum geht’s?"
+            required
+          ></textarea>
+        </label>
+
+        <button class="btn btn--primary" type="submit">Senden</button>
+      </form>
+
+      <aside class="contact__aside">
+        <div class="contact__card">
+          <h3>Direkt</h3>
+          <p>
+            <strong>E-Mail:</strong>
+            <a href="mailto:m.malina@gmx.de">m.malina@gmx.de</a>
+          </p>
+          <p><strong>LinkedIn:</strong> linkedin.com/in/</p>
+          <p><strong>Ort:</strong> 49808 Lingen</p>
+          <div class="divider"></div>
+          <p class="small">Noch am Anfang, aber mit klarer Richtung.</p>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+
