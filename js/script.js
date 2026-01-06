@@ -129,51 +129,29 @@ const waitForSections = setInterval(() => {
 }, 50);
 
 // =========================
-// EMAILJS - Kontaktformular
+// FORMSUBMIT - Kontaktformular (nur Button UI, KEIN preventDefault)
 // =========================
-function hookEmailForm() {
+function hookFormSubmitUX() {
   const form = document.getElementById("contact-form");
   if (!form) return false;
 
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
-
+  form.addEventListener("submit", () => {
     const btn = form.querySelector('button[type="submit"]');
-    const old = btn ? btn.textContent : "";
-    if (btn) {
-      btn.textContent = "Sende...";
-      btn.disabled = true;
-    }
+    if (!btn) return;
 
- emailjs.sendForm(
-  "service_nxyn5hr",
-  "template_ai1eyfc",
-  form,
-  "yoe5q1cI_ictotUQR"
-    ).then(() => {
-      if (btn) {
-        btn.textContent = old || "Senden";
-        btn.disabled = false;
-      }
-      form.reset();
-      alert("Nachricht wurde gesendet ✅");
-    }).catch((err) => {
-      console.error(err);
-      if (btn) {
-        btn.textContent = old || "Senden";
-        btn.disabled = false;
-      }
-      alert("Fehler beim Senden ❌ Bitte später erneut versuchen.");
-    });
+    // UI: Button sperren + Text ändern, aber Absenden NICHT blockieren
+    btn.dataset.oldText = btn.textContent || "Senden";
+    btn.textContent = "Sende...";
+    btn.disabled = true;
   });
 
   return true;
 }
 
 // Warten bis das Kontakt-Section geladen wurde (weil fetch/SPA)
-const emailWait = setInterval(() => {
+const formWait = setInterval(() => {
   if (document.getElementById("contact-form")) {
-    clearInterval(emailWait);
-    hookEmailForm();
+    clearInterval(formWait);
+    hookFormSubmitUX();
   }
 }, 150);
