@@ -127,3 +127,52 @@ const waitForSections = setInterval(() => {
     initCarousel();
   }
 }, 50);
+
+// =========================
+// EMAILJS - Kontaktformular
+// =========================
+function hookEmailForm() {
+  const form = document.getElementById("contact-form");
+  if (!form) return false;
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const btn = form.querySelector('button[type="submit"]');
+    const old = btn ? btn.textContent : "";
+    if (btn) {
+      btn.textContent = "Sende...";
+      btn.disabled = true;
+    }
+
+    emailjs.sendForm(
+      "service_nxyn5hr",
+      "template_fmhlu1a",
+      form
+    ).then(() => {
+      if (btn) {
+        btn.textContent = old || "Senden";
+        btn.disabled = false;
+      }
+      form.reset();
+      alert("Nachricht wurde gesendet ✅");
+    }).catch((err) => {
+      console.error(err);
+      if (btn) {
+        btn.textContent = old || "Senden";
+        btn.disabled = false;
+      }
+      alert("Fehler beim Senden ❌ Bitte später erneut versuchen.");
+    });
+  });
+
+  return true;
+}
+
+// Warten bis das Kontakt-Section geladen wurde (weil fetch/SPA)
+const emailWait = setInterval(() => {
+  if (document.getElementById("contact-form")) {
+    clearInterval(emailWait);
+    hookEmailForm();
+  }
+}, 150);

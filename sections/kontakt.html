@@ -7,10 +7,10 @@
     </div>
 
     <div class="contact">
-      <form class="form" onsubmit="return false;">
-        <label><span>Name</span><input type="text" placeholder="Dein Name" required /></label>
-        <label><span>E-Mail</span><input type="email" placeholder="dein@mail.de" required /></label>
-        <label><span>Nachricht</span><textarea rows="6" placeholder="Worum geht’s?" required></textarea></label>
+      <form class="form" id="contact-form">
+        <label><span>Name</span><input type="text" name="name" placeholder="Dein Name" required /></label>
+        <label><span>E-Mail</span><input type="email" name="email" placeholder="dein@mail.de" required /></label>
+        <label><span>Nachricht</span><textarea rows="6" name="message" placeholder="Worum geht’s?" required></textarea></label>
         <button class="btn btn--primary" type="submit">Senden</button>
       </form>
 
@@ -18,7 +18,7 @@
         <div class="contact__card">
           <h3>Direkt</h3>
           <p><strong>E-Mail:</strong> maximilian.malina@icloud.com</p>
-          <p><strong>LinkedIn:</strong> linkedin.com/in/deinprofil</p>
+          <p><strong>LinkedIn:</strong> linkedin.com/in/</p>
           <p><strong>Ort:</strong> 49808 Lingen</p>
           <div class="divider"></div>
           <p class="small">Noch am Anfang, aber mit klarer Richtung.</p>
@@ -27,4 +27,3 @@
     </div>
   </div>
 </section>
-
