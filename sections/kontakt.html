@@ -7,17 +7,42 @@
     </div>
 
     <div class="contact">
-      <form class="form" id="contact-form">
-        <label><span>Name</span><input type="text" name="name" placeholder="Dein Name" required /></label>
-        <label><span>E-Mail</span><input type="email" name="email" placeholder="dein@mail.de" required /></label>
-        <label><span>Nachricht</span><textarea rows="6" name="message" placeholder="Worum geht’s?" required></textarea></label>
+      <form
+        class="form"
+        id="contact-form"
+        action="https://formsubmit.co/maximilian.malina@icloud.com"
+        method="POST"
+      >
+        <!-- FormSubmit Einstellungen -->
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_subject" value="Neue Nachricht von deinem Portfolio">
+        <input type="hidden" name="_template" value="table">
+
+        <!-- optional, aber empfohlen (Spam-Schutz) -->
+        <input type="text" name="_honey" style="display:none">
+
+        <label>
+          <span>Name</span>
+          <input type="text" name="name" placeholder="Dein Name" required />
+        </label>
+
+        <label>
+          <span>E-Mail</span>
+          <input type="email" name="email" placeholder="dein@mail.de" required />
+        </label>
+
+        <label>
+          <span>Nachricht</span>
+          <textarea rows="6" name="message" placeholder="Worum geht’s?" required></textarea>
+        </label>
+
         <button class="btn btn--primary" type="submit">Senden</button>
       </form>
 
       <aside class="contact__aside">
         <div class="contact__card">
           <h3>Direkt</h3>
-          <p><strong>E-Mail:</strong> maximilian.malina@icloud.com</p>
+          <p><strong>E-Mail:</strong> <a href="mailto:maximilian.malina@icloud.com">maximilian.malina@icloud.com</a></p>
           <p><strong>LinkedIn:</strong> linkedin.com/in/</p>
           <p><strong>Ort:</strong> 49808 Lingen</p>
           <div class="divider"></div>
@@ -27,3 +52,4 @@
     </div>
   </div>
 </section>
+
