@@ -2,10 +2,12 @@
 <html lang="de">
 <head>
   <meta charset="utf-8" />
+
+  <!-- Verhindert Zoom Probleme auf Mobil Geräte -->
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Portfolio | Maximilian Malina-Premk</title>
 
-  <!-- Modular CSS -->
+  <!-- läd die CSS Dateien -->
   <link rel="stylesheet" href="css/base.css" />
   <link rel="stylesheet" href="css/header.css" />
   <link rel="stylesheet" href="css/hero.css" />
@@ -14,12 +16,14 @@
   <link rel="stylesheet" href="css/skills.css" />
   <link rel="stylesheet" href="css/contact.css" />
 
+  <!-- Google Fonts optimiert ----- schnelleres Rendrn -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
+  <!-- für die Barrierefreiheit - zum Vorlesen. aria-hidden="true" sorgt dafür, dass es von Screenreadern ignoriert wird. -->
   <div class="bg-glow" aria-hidden="true"></div>
 
   <header class="header">
@@ -43,7 +47,7 @@
     </div>
   </header>
 
-  <!-- Onepage Scroll Container -->
+  <!-- eine Seite komplett scrollen -->
   <main class="app" id="app" aria-live="polite">
     <div id="sections-root"></div>
   </main>

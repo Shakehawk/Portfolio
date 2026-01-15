@@ -65,7 +65,7 @@ body{
   scroll-behavior: smooth;
 }
 
-/* jede page = 1 screen */
+/* jede seite einzelnd im scroll */
 .page{
   height: calc(100vh - var(--headerH));
   scroll-snap-align: start;
@@ -81,7 +81,7 @@ body{
   justify-content:center;
 }
 
-/* Pattern */
+
 .page--pattern{ isolation:isolate; }
 .page--pattern::before{
   content:"";
@@ -132,7 +132,7 @@ body{
 .section__title--big{ font-size: clamp(2.0rem, 3.8vw, 3.0rem); }
 .section__text{ margin:0; color: var(--muted); line-height:1.7; }
 
-/* Buttons */
+
 .btn{
   appearance:none;
   border:1px solid transparent;
