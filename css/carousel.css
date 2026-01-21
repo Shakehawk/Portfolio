@@ -322,14 +322,19 @@ height: 180px;
 }
 
 .pcard__title {
-font-size: 1.5rem;
-margin-bottom: 10px;
+font-size: 1.25rem;
+margin-bottom: 8px;
 }
 
 .pcard__text {
-font-size: 0.9rem;
-line-height: 1.55;
-margin-bottom: 12px;
+font-size: 0.82rem;
+line-height: 1.45;
+margin-bottom: 10px;
+}
+
+.pcard__list li {
+font-size: 0.8rem;
+line-height: 1.35;
 }
 
 .pcard__tag {
