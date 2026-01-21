@@ -1,76 +1,349 @@
-.carousel-wrap{ margin-top: 14px; }
-.carousel-controls{ display:flex; justify-content:flex-end; gap: 10px; margin-bottom: 12px; }
+/* ============================================
+CAROUSEL.CSS - OPTIMIERT
+============================================ */
+:root{
+--cardW: 380px;
+--cardH: 520px;
+--radius: 720px;
+}
+
+#projekte {
+height: 100vh;
+overflow: hidden;
+position: relative;
+padding: 0;
+}
+
+#projekte .page__inner{
+justify-content: flex-start;
+padding-top: 24px;
+padding-bottom: 0;
+}
+
+#projekte .page-spacer{
+height: calc(var(--headerH) + 60px);
+flex-shrink: 0;
+}
+
+#projekte::before{
+content:"";
+position:absolute;
+inset:0;
+background:linear-gradient(180deg, rgba(7,22,19,.95) 0%, rgba(7,22,19,.92) 100%);
+z-index:0;
+}
+
+#projekte > *{
+position:relative;
+z-index:1;
+}
+
+#projekte .container{
+max-width:100%;
+padding-left: var(--pagePadX);
+padding-right: var(--pagePadX);
+display:flex;
+flex-direction:column;
+}
+
+#projekte .kicker{
+font-size: .78rem;
+letter-spacing: .18em;
+margin-bottom: 8px;
+}
+
+#projekte .section__head{
+margin-bottom: 40px;
+max-width: 100%;
+}
+
+#projekte .section__title{
+font-size: clamp(2.8rem, 5vw, 3.6rem);
+margin: 8px 0 14px;
+line-height: 1.15;
+}
+
+#projekte .section__text{
+font-size: 1.1rem;
+line-height: 1.7;
+max-width: 100%;
+}
+
+.carousel-wrap{
+transform: translateY(0);
+}
+
+.carousel-controls{
+position:absolute;
+top:32px;
+right:48px;
+display:flex;
+gap:14px;
+z-index:20;
+}
+
+.carousel-controls .btn{
+width:56px;
+height:56px;
+border-radius:999px;
+background: rgba(13,38,31,.65);
+border: 2px solid rgba(215,179,90,.35);
+display:flex;
+align-items:center;
+justify-content:center;
+color: var(--gold2);
+font-size: 1.5rem;
+font-weight: 900;
+backdrop-filter: blur(10px);
+box-shadow: 0 8px 24px rgba(0,0,0,.45), inset 0 0 0 1px rgba(215,179,90,.25);
+transition: transform .25s ease, box-shadow .25s ease, background .25s ease;
+}
+
+.carousel-controls .btn:hover{
+background: rgba(13,38,31,.85);
+transform: translateY(-2px) scale(1.06);
+box-shadow: 0 14px 38px rgba(0,0,0,.55), inset 0 0 0 1px rgba(215,179,90,.45);
+}
 
 .carousel3d{
-  position:relative;
-  height: 520px;
-  border-radius: 26px;
-  background: rgba(7,22,19,.15);
-  border: 1px solid rgba(215,179,90,.10);
-  overflow:hidden;
+position:relative;
+height:62vh;
+min-height:560px;
+max-height:640px;
+border-radius:32px;
+background:rgba(7,22,19,.15);
+border:2px solid #000;
+overflow:hidden;
 }
-.carousel3d__scene{
-  width:100%;
-  height:100%;
-  perspective: 1200px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-.carousel3d__ring{
-  position:relative;
-  width: var(--cardW);
-  height: var(--cardH);
-  transform-style: preserve-3d;
-  transform: translateZ(calc(var(--radius) * -1)) rotateY(var(--rot, 0deg));
-  transition: transform 800ms cubic-bezier(.2,.8,.2,1);
-}
-.pcard{
-  position:absolute;
-  inset:0;
-  width: var(--cardW);
-  height: var(--cardH);
-  border-radius: 22px;
-  transform-style: preserve-3d;
-  filter: drop-shadow(0 22px 70px rgba(0,0,0,.40));
-}
-.pcard__inner{
-  position:relative;
-  width:100%;
-  height:100%;
-  transform-style: preserve-3d;
-  border-radius: 22px;
-  transition: transform 850ms cubic-bezier(.2,.8,.2,1);
-}
-.pcard__face{
-  position:absolute;
-  inset:0;
-  border-radius: 22px;
-  padding: 18px;
-  background: rgba(13,38,31,.72);
-  border: 1px solid rgba(215,179,90,.14);
-  backdrop-filter: blur(14px);
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-}
-.pcard__back{ transform: rotateY(180deg); }
-.pcard:hover .pcard__inner{ transform: rotateY(180deg) scale(1.06); }
 
-.pcard__tag{ margin:0 0 10px; color: rgba(241,212,135,.95); font-weight:900; letter-spacing:.06em; text-transform:uppercase; font-size:.8rem; }
-.pcard__title{ margin:0 0 10px; font-family:"Playfair Display", serif; }
-.pcard__text{ margin:0 0 14px; color: var(--muted); line-height:1.65; }
-.pcard__meta{ display:flex; flex-wrap:wrap; gap:8px; margin-bottom: 10px; }
-.pcard__meta span{
-  padding: 6px 10px;
-  border-radius: 999px;
-  background: rgba(7,22,19,.55);
-  border: 1px solid rgba(215,179,90,.12);
-  color: rgba(231,239,233,.88);
-  font-size:.82rem;
-  font-weight:700;
+.carousel3d__scene{
+width:100%;
+height:100%;
+perspective:1400px;
+display:flex;
+align-items:center;
+justify-content:center;
 }
-.pcard__hint{ margin: 8px 0 0; color: rgba(231,239,233,.65); font-size: .9rem; }
-.pcard__list{ margin:0 0 12px; padding-left: 18px; color: rgba(231,239,233,.85); line-height:1.6; }
-.pcard__link{ color: var(--gold2); text-decoration:none; font-weight:900; }
-.pcard__link:hover{ text-decoration:underline; }
-.carousel-hint{ margin: 10px 0 0; color: rgba(231,239,233,.70); font-size:.9rem; }
+
+.carousel3d__ring{
+position:relative;
+width:var(--cardW);
+height:var(--cardH);
+transform-style:preserve-3d;
+transform: translateZ(calc(var(--radius)*-1)) rotateY(var(--rot,0deg));
+transition:transform 800ms cubic-bezier(.2,.8,.2,1);
+}
+
+.pcard{
+position:absolute;
+inset:0;
+width:var(--cardW);
+height:var(--cardH);
+border-radius:22px;
+transform-style:preserve-3d;
+filter:drop-shadow(0 22px 70px rgba(0,0,0,.40));
+}
+
+.pcard__inner{
+width:100%;
+height:100%;
+transform-style:preserve-3d;
+border-radius:22px;
+transition:transform 850ms cubic-bezier(.2,.8,.2,1);
+}
+
+.pcard__link,
+.pcard__link:hover,
+.pcard__link:focus,
+.pcard__link:active,
+.pcard__link:visited{
+  color: var(--gold2);
+  text-decoration: none;
+}
+
+.pcard__face{
+position:absolute;
+inset:0;
+padding:20px;
+border-radius:22px;
+background:rgba(13,38,31,.72);
+border:1px solid rgba(215,179,90,.14);
+backdrop-filter:blur(14px);
+backface-visibility:hidden;
+}
+
+.pcard__back{
+transform:rotateY(180deg);
+}
+
+.pcard:hover .pcard__inner{
+transform:rotateY(180deg) scale(1.06);
+}
+
+.pcard__media{
+margin-bottom:14px;
+overflow:hidden;
+border-radius:12px;
+}
+
+.pcard__image{
+width:100%;
+height:210px;
+object-fit:cover;
+border-radius:12px;
+display:block;
+}
+
+.pcard__tag{
+margin:0 0 10px;
+color:rgba(231,239,233,.65);
+font-weight:900;
+letter-spacing:.08em;
+text-transform:uppercase;
+font-size:.88rem;
+}
+
+.pcard__title{
+margin:0 0 12px;
+color:rgba(241,212,135,.95);
+font-family:"Playfair Display",serif;
+font-size: 1.7rem;
+line-height: 1.2;
+}
+
+.pcard__text{
+margin:0 0 14px;
+color:var(--muted);
+line-height:1.6;
+font-size: 1rem;
+}
+
+.pcard__meta{
+display:flex;
+gap:8px;
+margin-bottom:12px;
+flex-wrap: wrap;
+}
+
+.pcard__meta span{
+padding:10px 16px;
+border-radius:999px;
+background:rgba(7,22,19,.55);
+border:1px solid rgba(215,179,90,.12);
+color:rgba(241,212,135,.95);
+font-size:.95rem;
+font-weight:800;
+letter-spacing: .04em;
+backdrop-filter: blur(6px);
+}
+
+.pcard__btn{
+display: inline-flex;
+align-items: center;
+justify-content: center;
+padding: 13px 22px;
+border-radius: 999px;
+font-size: 1rem;
+font-weight: 700;
+color: var(--bg);
+background: linear-gradient(135deg, var(--gold), var(--gold2));
+border: none;
+cursor: pointer;
+transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.pcard__btn:hover{
+transform: translateY(-2px) scale(1.04);
+box-shadow: 0 12px 28px rgba(0,0,0,.35);
+}
+
+@media (max-width: 980px) {
+:root {
+--cardW: 300px;
+--cardH: 440px;
+--radius: 520px;
+}
+
+#projekte .page-spacer {
+height: calc(var(--headerH) + 16px);
+}
+
+#projekte .container{
+padding-left: var(--pagePadX);
+padding-right: var(--pagePadX);
+}
+
+#projekte .section__head{
+margin-bottom: 30px;
+}
+
+#projekte .section__title{
+font-size: clamp(2rem, 8vw, 2.8rem);
+}
+
+#projekte .section__text{
+font-size: 1rem;
+}
+
+.carousel3d {
+height: 55vh;
+min-height: 450px;
+max-height: 550px;
+border-radius: 24px;
+}
+
+.carousel-controls {
+top: 20px;
+right: 24px;
+gap: 10px;
+}
+
+.carousel-controls .btn {
+width: 48px;
+height: 48px;
+font-size: 1.3rem;
+}
+
+.pcard {
+border-radius: 18px;
+}
+
+.pcard__inner {
+border-radius: 18px;
+}
+
+.pcard__face {
+padding: 16px;
+border-radius: 18px;
+}
+
+.pcard__image {
+height: 180px;
+}
+
+.pcard__title {
+font-size: 1.5rem;
+margin-bottom: 10px;
+}
+
+.pcard__text {
+font-size: 0.9rem;
+line-height: 1.55;
+margin-bottom: 12px;
+}
+
+.pcard__tag {
+font-size: 0.85rem;
+margin-bottom: 8px;
+}
+
+.pcard__meta span {
+padding: 8px 13px;
+font-size: 0.88rem;
+}
+
+.pcard__btn {
+padding: 12px 18px;
+font-size: 0.92rem;
+}
+}
